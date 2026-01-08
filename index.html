@@ -1472,6 +1472,53 @@
     }
   </script>
 
+  <script>
+    $(document).ready(function () {
+      // Inicializar animaciones
+      try { AOS.init(); } catch (e) { }
+
+      $('#sendAsistencia').on('click', function (e) {
+        e.preventDefault(); // Evita que la página se recargue
+
+        // 1. Capturamos los datos del modal
+        const nombre = $('#nombreAsistente').val();
+        const va = $('input[name="asistencia"]:checked').val();
+        const mensajeExtra = $('#comentariosAsistente').val();
+        const numeroSofi = "5491167283379";
+
+        // 2. Validación básica: el nombre es obligatorio
+        if (nombre.trim() === "") {
+          alert("Por favor, ingresa tu nombre completo para confirmar.");
+          $('#nombreAsistente').focus();
+          return;
+        }
+
+        // 3. Armamos el cuerpo del mensaje
+        let texto = `Hola Sofi, soy *${nombre}*.\n`;
+
+        if (va === "Si") {
+          texto += "✅ ¡Confirmo que voy a ir a tus 15!";
+        } else {
+          texto += "❌ Lamentablemente no voy a poder ir.";
+        }
+
+        // 4. Dato importante: solo se agrega si el usuario escribió algo
+        if (mensajeExtra && mensajeExtra.trim() !== "") {
+          texto += `\n\n*Dato adicional:* ${mensajeExtra.trim()}`;
+        }
+
+        // 5. Construimos la URL de WhatsApp y abrimos
+        const url = `https://wa.me/${numeroSofi}?text=${encodeURIComponent(texto)}`;
+        window.open(url, '_blank');
+
+        // 6. Cerramos el modal opcionalmente
+        $('#modalAsistencia').modal('hide');
+      });
+    });
+  </script>
+
+
+
   <!-- External Libraries -->
   <script src="./assets/jquery-3.5.1.min.js"></script>
   <script type="text/javascript" src="https://cdn.addevent.com/libs/atc/1.6.1/atc.min.js" async defer></script>
