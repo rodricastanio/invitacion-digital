@@ -185,7 +185,7 @@
 
     section.ceremonia-fiesta .col-ceremonia h3,
     section.ceremonia-fiesta .col-fiesta h3 {
-      font-size: 20px !important;
+      font-size: 40px !important;
       min-width: auto !important;
       padding: 6px 8px !important;
     }
@@ -896,7 +896,7 @@ section.portada .portada-picture {
     color: var(--color-2);
     font-size: 50px;
     line-height: 60px;
-    margin-top: 30px;
+    margin-top: 50px;
 
   }
 
@@ -1016,6 +1016,8 @@ section.cuenta-regresiva p.fin-cuenta {
 
 /* Ceremonia - Fiesta */
 
+/* Ceremonia - Fiesta */
+
 section.ceremonia-fiesta {
   padding-bottom: 20%;
   position: relative;
@@ -1055,49 +1057,89 @@ section.ceremonia-fiesta .col-fiesta {
   z-index: 999;
 }
 
-section.ceremonia-fiesta .col-ceremonia .anim-anillos,
-section.ceremonia-fiesta .anim-fiesta {
-  width: 160px;
-  height: 160px;
-  margin: 0 auto 20px;
-}
-
+/* Estilos actualizados para la imagen */
 section.ceremonia-fiesta .col-ceremonia .anim-anillos,
 section.ceremonia-fiesta .anim-fiesta {
   width: 175px;
   height: 175px;
   margin: 0 auto 20px;
-  padding: 20px;
   background-color: white;
   border-radius: 50%;
-  -webkit-box-shadow: 0px 0px 15px -1px rgba(0, 0, 0, 0.40);
-  -moz-box-shadow: 0px 0px 15px -1px rgba(0, 0, 0, 0.40);
   box-shadow: 0px 0px 15px -1px rgba(0, 0, 0, 0.40);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilo específico para el logo de fiesta */
+section.ceremonia-fiesta .anim-fiesta .logo-fiesta {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
 }
 
 section.ceremonia-fiesta .col-fiesta .anim-fiesta {
-  padding: 30px;
+  padding: 10px;
 }
 
 section.ceremonia-fiesta .col-ceremonia .anim-anillos {
   padding: 20px;
 }
 
+section.ceremonia-fiesta .ondas-fondo {
+  position: relative;
+  width: 100%;
+  height: 0;
+  /* Solo ocupa espacio cuando sea necesario */
+  margin-bottom: -100px;
+  /* Ajusta este valor según necesites */
+}
+
+section.ceremonia-fiesta .ondas-decorativas {
+  position: absolute;
+  width: 100vw;
+  height: auto;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  /* Detrás del logo */
+  max-width: 400px;
+  /* Ajusta según el tamaño que quieras */
+}
+
+/* Asegurar que el logo esté por encima */
+section.ceremonia-fiesta .anim-fiesta {
+  position: relative;
+  z-index: 2;
+  /* Por encima de las ondas */
+  width: 100%;
+  height: 300px;
+  margin: auto;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0px 0px 15px -1px rgba(0, 0, 0, 0.40);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 section.ceremonia-fiesta .col-ceremonia h3,
 section.ceremonia-fiesta .col-fiesta h3 {
   font-family: var(--fuente-1);
   color: #FFF;
-  font-size: 40px;
+  font-size: 100px;
   display: inline-block;
   position: relative;
   min-width: 60%;
   padding: 10px 0;
-  background-color: var(--color-2);
+  margin-top: 40px;
+  /* background-color: var(--c}olor-2); */
 }
 
 section.ceremonia-fiesta .col-ceremonia h3:before,
 section.ceremonia-fiesta .col-fiesta h3:before {
-  /* background-image: url(../img/img_cinta01.svg); */
   position: absolute;
   content: '';
   background-size: contain !important;
@@ -1111,7 +1153,6 @@ section.ceremonia-fiesta .col-fiesta h3:before {
 
 section.ceremonia-fiesta .col-ceremonia h3:after,
 section.ceremonia-fiesta .col-fiesta h3:after {
-  /* background-image: url(../img/img_cinta02.svg); */
   position: absolute;
   content: '';
   background-size: contain !important;
@@ -1138,6 +1179,82 @@ section.ceremonia-fiesta .info-col .info-box h6 {
   font-size: 25px;
 }
 
+/* Contenedor del título y banderilla */
+section.ceremonia-fiesta .titulo-contenedor {
+  position: relative;
+  display: inline-block;
+  margin: 20px 0 30px;
+  min-height: 120px;
+  /* Aumentado para banderilla más grande */
+  width: 100%;
+  /* Para que ocupe todo el ancho */
+  text-align: center;
+  /* Centrar contenido */
+}
+
+/* Banderilla - Centrada y más pequeña */
+section.ceremonia-fiesta .banderilla {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  max-width: 250px;
+  /* REDUCIDO de 380px a 250px (ajusta según necesites) */
+  width: auto;
+  height: auto;
+  display: block;
+}
+
+/* Título "Fiesta" - Más grande y mejor centrado */
+section.ceremonia-fiesta .titulo-fiesta {
+  position: relative;
+  z-index: 2;
+  font-family: var(--fuente-1);
+  color: #FFF;
+  font-size: 100px;
+  /* AUMENTADO de 40px a 50px */
+  font-weight: bold;
+  /* Para que se vea más fuerte */
+  margin: 0;
+  padding: 15px 0;
+  /* Aumentado padding vertical */
+  background-color: transparent;
+  display: inline-block;
+  min-width: 180px;
+  /* Aumentado para más espacio */
+  text-align: center;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  margin-bottom: 40px
+    /* Espaciado entre letras */
+
+}
+
+/* Para que el texto tenga más presencia */
+section.ceremonia-fiesta .titulo-fiesta::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 110%;
+  height: 70%;
+  background-color: rgba(0, 0, 0, 0.2);
+  /* Fondo sutil */
+  z-index: -1;
+  border-radius: 5px;
+  padding: 0 20px;
+}
+
+
+/* Eliminar los pseudo-elementos de fondo (cintas) si existían */
+section.ceremonia-fiesta .titulo-fiesta:before,
+section.ceremonia-fiesta .titulo-fiesta:after {
+  display: none;
+}
+
+
 section.ceremonia-fiesta .info-col .info-box p {
   font-family: var(--fuente-2);
   font-weight: var(--grosor-fuente-regular);
@@ -1152,7 +1269,6 @@ section.ceremonia-fiesta .info-col .info-box a.boton {
 }
 
 section.ceremonia-fiesta:after {
-  /* background-image: url('../img/curva01.svg'); */
   position: absolute;
   content: '';
   background-size: contain !important;
@@ -1176,7 +1292,6 @@ section.ceremonia-fiesta .addeventatc:hover .nameBtn {
   color: #fff;
 }
 
-
 /* ---------- */
 
 
@@ -1189,14 +1304,75 @@ section.galeria {
   padding-bottom: 50px;
   position: relative;
   background-color: var(--color-4);
+  overflow: hidden;
+  /* Para que la ola no desborde */
 }
 
+/* Contenedor de la ola superior */
+section.galeria .ola-superior {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  pointer-events: none;
+  margin-top: 40px;
+  /* Para que no interfiera con clics */
+}
+
+/* Ola decorativa - que cubra de punta a punta */
+section.galeria .ola-decorativa {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform: translateY(-50%);
+  /* Para que la mitad superior sea visible */
+  max-width: none;
+  /* Elimina cualquier limitación de ancho */
+}
+
+/* Si la ola no cubre completamente, usa esto: */
+section.galeria .ola-superior {
+  position: absolute;
+  top: -10px;
+  /* Ajusta según la forma de tu ola */
+  left: 0;
+  width: 100vw;
+  /* 100% del viewport */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* O si necesitas forzar el ancho completo */
+section.galeria .ola-decorativa {
+  width: 100vw !important;
+  min-width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  /* Truco para centrar */
+}
+
+/* Ajusta el padding superior para el contenido */
+section.galeria .container {
+  position: relative;
+  z-index: 2;
+  /* Por encima de la ola */
+  padding-top: 60px;
+  /* Espacio para la ola */
+}
+
+/* Si cambiaste el SVG por imagen */
 section.galeria .anim-galeria {
   width: 70px;
   margin: 0 auto;
 }
 
+section.galeria .anim-galeria .logo-galeria {
+  width: 100%;
+  height: auto;
+}
 
+/* Resto de tu CSS existente */
 section.galeria .content-fotos {
   margin-top: 40px;
   position: relative;
@@ -1206,24 +1382,16 @@ section.galeria .content-fotos img {
   width: 100%;
 }
 
-
 section.galeria .content-fotos .polaroid a {
   outline: none;
 }
-
 
 section.galeria .content-fotos .polaroid {
   padding: 15px;
   padding-bottom: 100px;
   margin: 5px;
   background-color: var(--color-4);
-  -webkit-box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 0.40);
-  -moz-box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 0.432);
   box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 0.40);
-
-  -webkit-transition: all 0.5s 0s ease;
-  -moz-transition: all 0.5s 0s ease;
-  -o-transition: all 0.5s 0s ease;
   transition: all 0.5s 0s ease;
 }
 
@@ -1247,7 +1415,6 @@ section.galeria .slick-center .polaroid {
   bottom: -30px;
 }
 
-
 section.galeria .slick-dots li button:before {
   font-size: 45px !important;
   color: var(--color-5) !important;
@@ -1256,6 +1423,17 @@ section.galeria .slick-dots li button:before {
 
 section.galeria .slick-dots li.slick-active button:before {
   opacity: 1;
+}
+
+section.galeria h2.title {
+  font-size: 48px !important;
+  line-height: 1.3 !important;
+
+}
+
+
+section.galeria p.subtitle {
+  font-size: 22px !important;
 }
 
 /* ---------- */
@@ -2300,6 +2478,7 @@ footer img.firma-footer {
     z-index: 110 !important;
   }
 
+
   /* Flores contador: asegurar visibilidad y adaptar contenido dentro del círculo */
   section.cuenta-regresiva .box-aros {
     width: 100% !important;
@@ -2309,6 +2488,9 @@ footer img.firma-footer {
     right: 0;
   }
 
+  section.ceremonia-fiesta .titulo-fiesta {
+    font-size: 100px;
+  }
 
   section.cuenta-regresiva .box-aros .box-circulo {
     width: 320px !important;
