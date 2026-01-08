@@ -763,7 +763,7 @@ section.portada .portada-picture {
 
 
   section.portada .portada-container .row.d-flex {
-    height: auto !important;
+    height: 760px;
     margin: 0;
   }
 
@@ -1024,19 +1024,17 @@ section.portada .portada-picture {
   /* Cuenta regresiva */
   section.cuenta-regresiva {
     position: relative;
-    height: auto !important;
+    height: 270px;
     background-color: var(--color-4);
-    padding: 40px 0;
   }
 
   section.cuenta-regresiva .box-aros {
-    width: 100% !important;
-    height: auto !important;
+    width: 430px;
+    height: 430px;
     background-color: var(--color-4);
     position: relative;
     z-index: 99;
-    top: 0 !important;
-    margin: 0 auto;
+    top: -200px
   }
 
 
@@ -1057,7 +1055,6 @@ section.portada .portada-picture {
     width: 315px;
     height: 315px;
     padding: 20px;
-    margin: 0 auto;
   }
 
   section.cuenta-regresiva .box-aros .box-circulo span.falta {
@@ -1725,8 +1722,8 @@ section.fiesta .item-fiesta .content-item-fiesta {
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   border-radius: 20px;
-  min-height: auto !important;
-  /* Cambiado de 520px fijo a auto */
+  min-height: 520px;
+  /* Aumentado de 480px a 520px (más largo) */
   -webkit-box-shadow: 0px 0px 15px 0px #ececec;
   box-shadow: 0px 0px 15px 0px #ececec;
   display: flex;
@@ -1766,8 +1763,8 @@ section.fiesta .item-fiesta .adorno.adorno-2 {
 /* Media query para móviles - mantener proporciones */
 @media (max-width: 768px) {
   section.fiesta .item-fiesta .content-item-fiesta {
-    min-height: auto !important;
-    /* Cambiado a auto */
+    min-height: 490px;
+    /* Un poco menos alto en móviles */
     padding: 40px 25px;
   }
 
@@ -2648,9 +2645,63 @@ footer img.firma-footer {
   height: 10px;
 }
 
+/* ======================= */
+/* AJUSTES ESPECÍFICOS PARA EL IFRAME DEL MAPA */
+/* ======================= */
+
+#modalMapa .modal-body {
+  padding: 0 !important;
+  /* Eliminar padding para que iframe ocupe todo */
+  height: 400px;
+  /* Altura fija para escritorio */
+  display: flex;
+  flex-direction: column;
+}
+
+#modalMapa iframe {
+  width: 100% !important;
+  height: 100% !important;
+  /* Que ocupe todo el espacio disponible */
+  border: 0;
+  flex-grow: 1;
+  /* Para que se expanda */
+}
+
+/* Para móviles - que ocupe más espacio */
+@media (max-width: 768px) {
+  #modalMapa .modal-dialog {
+    margin: 10px !important;
+    max-width: calc(100% - 20px) !important;
+  }
+
+  #modalMapa .modal-body {
+    height: 300px;
+    /* Altura más pequeña para móviles */
+  }
+
+  #modalMapa .modal-content {
+    max-height: 85vh;
+    /* Limitar altura máxima en móviles */
+  }
+}
+
+/* Para pantallas muy pequeñas */
+@media (max-width: 576px) {
+  #modalMapa .modal-body {
+    height: 250px;
+    /* Aún más pequeña en móviles muy pequeños */
+  }
+}
+
+/* Para pantallas grandes */
+@media (min-width: 992px) {
+  #modalMapa .modal-body {
+    height: 450px;
+    /* Más altura en pantallas grandes */
+  }
+}
 
 /* ---------- */
-
 
 
 /* Modal de mensaje exito */
