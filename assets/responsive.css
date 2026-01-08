@@ -78,8 +78,8 @@
   section.portada .portada-container .row.d-flex {
     height: auto !important;
     padding: 0;
-    /* Force 0 padding here too */
-    /* Reduced top padding to remove gap */
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 
   section.portada .portada-container {
@@ -91,8 +91,11 @@
   }
 
   section.cuenta-regresiva .box-aros {
-    width: 360px;
-    height: 360px;
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    aspect-ratio: 1/1;
+    /* Mantener proporcion cuadrada */
     top: 50px
   }
 
@@ -308,7 +311,21 @@
 
   section.fiesta .fiesta-flor-izq {
     max-width: 25%;
-    bottom: -30%;
+  }
+
+  /* Responsive fixes */
+  html,
+  body {
+    overflow-x: hidden !important;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
   }
 
   section.fiesta:after {

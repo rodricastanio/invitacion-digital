@@ -8,6 +8,7 @@
   *::before,
   *::after {
     box-sizing: border-box;
+
   }
 
 
@@ -88,20 +89,10 @@
 
   @media (max-width: 768px) {
 
-    /* ===== SOLUCIÓN PARA EL SCROLL HORIZONTAL ===== */
     body,
     html {
-      overflow-x: hidden !important;
-      width: 100% !important;
-    }
-
-    /* FIX para cualquier elemento que pueda causar overflow */
-    .container,
-    .row,
-    section,
-    div {
-      max-width: 100vw !important;
-      overflow-x: hidden !important;
+      overflow-x: hidden;
+      width: 100%;
     }
 
     .d-md-flex {
@@ -247,7 +238,7 @@
   --color-1: #8c5e44;
   --color-2: #b49073;
   --color-3: #d68b75;
-  --color-4: #F2EEE2;
+  --color-4: #ffff;
   --color-5: #93A8AC;
 
   /* Fuentes */
@@ -512,7 +503,6 @@ section.portada {
   background-size: cover;
   color: #fff;
   position: relative;
-
 }
 
 section.portada .portada-picture {
@@ -645,7 +635,8 @@ section.portada .portada-picture {
   }
 
   section.portada {
-    margin-bottom: 120px;
+    margin-bottom: 10px;
+
   }
 
 
@@ -2349,4 +2340,5 @@ section.portada::after {
 /* Forzar que el contenedor de la imagen permita que la wave la tape visualmente */
 section.portada .portada-picture {
   overflow: visible;
+}
 }
