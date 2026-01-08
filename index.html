@@ -379,27 +379,31 @@
           <div class="info-col">
             <div class="info-box">
               <h6>Día</h6>
-              <p>[FECHA]</p>
-              <a href="#" class="boton addeventatc" id="addeventatc1" title="" aria-haspopup="true"
-                aria-expanded="false" tabindex="0" translate="no" data-loaded="true" style="visibility: visible;">
-                <span class="nameBtn atc_node notranslate">Agendar</span>
-                <span class="start atc_node notranslate">2026-02-14 16:19:49</span>
-                <span class="end atc_node notranslate">2026-02-14 16:19:49</span>
-                <span class="timezone atc_node notranslate">America/Argentina/Buenos_Aires</span>
-                <span class="title atc_node notranslate">[NOMBRE] ::: [EVENTO]</span>
+              <p>Sabado 14 de Febrero - 22hs</p>
+              <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Fiesta%20de%2015%20años%20de%20Sofi&dates=20260214T220000/20260215T050000&location=Salón%20Clahe%2C%20Bartolomé%20Mitre%20665%2C%20Florencio%20Varela%2C%20Buenos%20Aires&details=Fiesta%20de%2015%20años%20de%20Sofi%20en%20Salón%20Clahe&ctz=America/Argentina/Buenos_Aires"
+                target="_blank" class="boton" title="Agregar a Google Calendar">
+                <span>Agendar</span>
               </a>
             </div>
 
             <div class="info-box">
               <h6>Lugar</h6>
-              <p>Salon Avril</p>
-              <a href="https://wa.me/#" data-evento="Fiesta" class="boton confirmar-asistencia">Confirmar asistencia</a>
+              <p>Salon Clahe</p>
+
+              <a href="#" data-evento="Fiesta" class="boton confirmar-asistencia" data-toggle="modal"
+                data-target="#modalAsistencia">
+                Confirmar asistencia
+              </a>
             </div>
 
             <div class="info-box">
               <h6>Dirección</h6>
-              <p>Av. Pergamino 203 - Cba</p>
-              <a href="#" data-evento="Fiesta" class="boton modal-como-llegar">¿Cómo llegar?</a>
+              <p>Av. 665 - Buenos Aires</p>
+
+              <a href="#" data-evento="Fiesta" data-toggle="modal" class="boton modal-como-llegar"
+                data-target="#modalMapa">¿Cómo llegar?</a>
+
+
             </div>
           </div>
         </div>
@@ -902,14 +906,10 @@
               <a href="https://wa.me/#" class="sugerir-cancion">Sugerir canción</a>
             </li>
             <li>
-              <div title="" class="addeventatc" id="addeventatc2" aria-haspopup="true" aria-expanded="false"
-                tabindex="0" translate="no" data-loaded="true" style="visibility: visible;">
-                <span class="nameBtn atc_node notranslate">Agendar Fiesta</span>
-                <span class="start atc_node notranslate">2026-02-14 16:19:49</span>
-                <span class="end atc_node notranslate">2026-02-14 16:19:49</span>
-                <span class="timezone atc_node notranslate">America/Argentina/Buenos_Aires</span>
-                <span class="title atc_node notranslate">[NOMBRE] ::: [EVENTO]</span>
-              </div>
+              <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Sofi%20Mis%2015%20años%20%3A%3A%3A%20Fiesta&dates=20260214T220000/20260215T050000&location=Salon%20Clahe%2C%20Av.%20665%20-%20Buenos%20 Aires&details=Fiesta%20de%2015%20años%20de%20Sofi%20en%20Salon%20Clahe&ctz=America/Argentina/Buenos_Aires"
+                target="_blank" class="confirmar-asistencia" title="Agregar a Google Calendar">
+                Agendar Fiesta
+              </a>
             </li>
           </ul>
         </div>
@@ -978,10 +978,7 @@
       </svg></div>
   </div>
 
-  <iframe id="player-musica-fondo" frameborder="0" allowfullscreen=""
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    referrerpolicy="strict-origin-when-cross-origin" title="Taylor Swift – mirrorball (Official Lyric Video)" width="10"
-    height="10" src="./assets/saved_resource.html"></iframe>
+
 
 
 
@@ -992,28 +989,29 @@
   <!-- Modal asistencia-->
   <div id="modalAsistencia" class="modal fade" tabindex="-1">
     <div class="modal-dialog modal-md modal-dialog-centered">
-
       <div class="modal-content">
-
         <div class="modal-content-2">
 
+          <!-- Logo circular superior -->
+          <div class="logo-modal-superior">
+            <img src="./assets/fiesta-logo.png" alt="Logo Fiesta" class="logo-fiesta">
+          </div>
+
           <picture>
-            <img src="./assets/flores_Grupo04.png" alt="">
+            <!-- <img src="./assets/fiesta-logo.png" alt=""> -->
             <img class="adorno adorno-1 aos-init aos-animate" data-aos="fade-right" data-aos-delay="300"
               data-aos-duration="1000" data-aos-once="false" src="./assets/flores_Grupo04.png" alt="" loading="">
           </picture>
 
-
           <div class="img-top-modal d-flex justify-content-center align-items-start">
-
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
 
-            <div class="white-circle-icon">
+            <!-- Puedes eliminar o mantener este si quieres -->
+            <div class="white-circle-icon" style="display: none;">
               <img class="" src="./assets/img_circuloCeremonia.svg" alt="">
             </div>
-
           </div>
 
           <div class="modal-header">
@@ -1021,24 +1019,23 @@
           </div>
 
           <div class="modal-body">
-
-
             <div class="formulario-content">
-
               <form id="formAsistencia" action="https://wa.me/#">
-
+                <p id="titutlo">¿Vas a asistir a mis 15 años?</p>
 
                 <div class="form-group d-flex justify-content-around custom-control custom-radio custom-control-inline">
                   <div class="form-check">
                     <input class="form-check-input custom-control-input" type="radio" name="asistencia" id="1"
                       value="Si" checked="">
                     <label class="form-check-label custom-control-label" for="1">
-                      ¡Sí, confirmo! </label>
+                      ¡Sí, confirmo!
+                    </label>
                   </div>
                   <div class="form-check">
                     <input class="custom-control-input" type="radio" name="asistencia" id="2" value="No">
                     <label class="custom-control-label" for="2">
-                      No puedo :( </label>
+                      No puedo
+                    </label>
                   </div>
                 </div>
 
@@ -1046,7 +1043,6 @@
                   <input type="text" class="form-control" id="nombreAsistente" name="nombre"
                     placeholder="Ingrese su nombre completo">
                 </div>
-
 
                 <div class="form-group">
                   <textarea id="comentariosAsistente" class="form-control" name="comentarios" rows="2"
@@ -1058,24 +1054,21 @@
                 <input type="hidden" name="token" value="">
                 <input type="hidden" name="lang" value="es">
                 <input type="hidden" name="country" value="ar">
-
               </form>
-
             </div>
 
             <div class="msj-content d-flex flex-column justify-content-center"></div>
-
           </div>
 
           <div class="modal-footer">
             <button type="button" id="sendAsistencia" class="boton">Enviar</button>
           </div>
-
         </div>
       </div>
-
-
     </div>
+  </div>
+
+  </div>
   </div>
   <!-- Modal sugerir cancion-->
   <div id="modalSugerirCancion" class="modal fade" tabindex="-1">
@@ -1300,44 +1293,37 @@
         <div class="modal-content-2">
 
           <picture>
-            <img src="./assets/flores_Grupo04.png" alt="">
-            <img src="./assets/flores_Grupo04.png">
-            <img class="adorno adorno-1 aos-init aos-animate" data-aos="fade-right" data-aos-delay="300"
-              data-aos-duration="1000" data-aos-once="false" src="./assets/flores_Grupo04.png" alt="" loading="lazy">
+            <img class="adorno adorno-1" src="./assets/flores_Grupo04.png" alt="" loading="lazy">
           </picture>
 
-
-
           <div class="img-top-modal d-flex justify-content-center align-items-start">
-
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
-
           </div>
 
-
           <div class="modal-header">
-
-            <h5 class="modal-title"></h5>
-
+            <p class="titulo">¿Cómo llegar?</p>
           </div>
 
           <div class="modal-body">
-            <!-- Loader mientras carga el mapa -->
-            <div id="mapLoader" class="map-loader">
-              <div class="map-spinner"></div>
-            </div>
-            <iframe id="googleMapIframe" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade" src="./assets/saved_resource(1).html"></iframe>
+            <!-- IFRAME DE GOOGLE MAPS - ELIMINA EL LOADER Y PONE ESTO -->
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3275.911927646544!2d-58.27021838946344!3d-34.808157572768515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a329005b042c03%3A0x93005900013a514!2sClahe%20Eventos%20Varela%20II!5e0!3m2!1ses-419!2sar!4v1767909293916!5m2!1ses-419!2sar"
+              width="100%" height="950" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+
           </div>
 
           <div class="modal-footer">
-            <a class="boton ampliar-mapa" target="_blank" href="#">Ampliar mapa</a>
+            <a class="boton ampliar-mapa" target="_blank"
+              href="https://www.google.com/maps/search/?api=1&query=Clahe+Eventos+Varela+II">
+              Ampliar mapa
+            </a>
           </div>
 
         </div>
-
       </div>
     </div>
   </div>
@@ -1401,6 +1387,7 @@
 
 
 
+
     // Idioma js en MODELO e INVITACION
     var langJsVariante = "es-AR";
 
@@ -1410,7 +1397,7 @@
 
 
     // Cuenta regresiva
-    var fechaCuentaRegresiva = "02/14/2026 16:19:49";
+    var fechaCuentaRegresiva = "02/14/2026 22:00:00";
 
     // Mapas
     var latitudFiesta = -34.6201481;
@@ -1446,6 +1433,34 @@
 
   <!-- Funciones y varialbes globales -->
   <script>
+
+
+    $(document).ready(function () {
+      // Cuando se abre el modal
+      $('#modalMapa').on('shown.bs.modal', function () {
+        // Forzar redimensionamiento del iframe
+        var iframe = $('#modalMapa iframe')[0];
+        if (iframe) {
+          // Pequeño delay para asegurar que el modal esté completamente visible
+          setTimeout(function () {
+            iframe.style.height = "450px";
+            if (iframe.contentWindow) {
+              iframe.contentWindow.postMessage('resize', '*');
+            }
+          }, 300);
+        }
+      });
+
+      // Cuando se cierra el modal
+      $('#modalMapa').on('hidden.bs.modal', function () {
+        // Resetear el iframe para liberar memoria
+        var iframe = $('#modalMapa iframe')[0];
+        if (iframe) {
+          // Opcional: puedes recargar el iframe para limpiar
+          // iframe.src = iframe.src;
+        }
+      });
+    });
     // Funcion para validar formato url
     function is_url(str) {
       regexp = /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
@@ -1459,6 +1474,7 @@
 
   <!-- External Libraries -->
   <script src="./assets/jquery-3.5.1.min.js"></script>
+  <script type="text/javascript" src="https://cdn.addevent.com/libs/atc/1.6.1/atc.min.js" async defer></script>
   <script src="./assets/popper.min.js"></script>
   <script src="./assets/bootstrap.min.js"></script>
   <script src="./assets/slick.min.js"></script>
