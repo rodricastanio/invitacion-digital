@@ -390,7 +390,7 @@
               <h6>Lugar</h6>
               <p>Salon Clahe</p>
 
-              <a href="#" data-evento="Fiesta" class="boton confirmar-asistencia" data-toggle="modal"
+              <a href="#" data-evento="Fiesta" class="boton confirmar-asistencia-whatsapp" data-toggle="modal"
                 data-target="#modalAsistencia">
                 Confirmar asistencia
               </a>
@@ -898,7 +898,7 @@
           class="col-12 col-lg-6 col-acciones-footer d-flex justify-content-center justify-content-lg-end align-items-center mt-4 mt-lg-0">
           <ul>
             <li>
-              <a href="https://wa.me/#" data-evento="Fiesta" class="confirmar-asistencia">
+              <a href="#" data-evento="Fiesta" class="confirmar-asistencia-whatsapp">
                 Confirmar asistencia a fiesta
               </a>
             </li>
@@ -1431,135 +1431,74 @@
 
 
 
-  <!-- Funciones y varialbes globales -->
-  <script>
-
-
-    $(document).ready(function () {
-      // Cuando se abre el modal
-      $('#modalMapa').on('shown.bs.modal', function () {
-        // Forzar redimensionamiento del iframe
-        var iframe = $('#modalMapa iframe')[0];
-        if (iframe) {
-          // Pequeño delay para asegurar que el modal esté completamente visible
-          setTimeout(function () {
-            iframe.style.height = "450px";
-            if (iframe.contentWindow) {
-              iframe.contentWindow.postMessage('resize', '*');
-            }
-          }, 300);
-        }
-      });
-
-      // Cuando se cierra el modal
-      $('#modalMapa').on('hidden.bs.modal', function () {
-        // Resetear el iframe para liberar memoria
-        var iframe = $('#modalMapa iframe')[0];
-        if (iframe) {
-          // Opcional: puedes recargar el iframe para limpiar
-          // iframe.src = iframe.src;
-        }
-      });
-    });
-    // Funcion para validar formato url
-    function is_url(str) {
-      regexp = /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
-      if (regexp.test(str)) {
-        return true;
-      } else {
-        return false;
-      }
-    }
-  </script>
-  <script>
-    // Modal de confirmación - Funcionalidad corregida
-    document.querySelector('.btn-confirmar').addEventListener('click', function () {
-      const modal = document.getElementById('confirmModal');
-      modal.style.display = 'block';
-    });
-
-    // Manejo de las opciones de confirmación
-    document.querySelectorAll('.btn-confirm-yes, .btn-confirm-no').forEach(button => {
-      button.addEventListener('click', function (e) {
-        e.stopPropagation(); // Evitar que cierre el modal
-
-        const response = this.getAttribute('data-response');
-        const isYes = response === 'si';
-
-        // Pedir nombre (opcional)
-        const nombre = prompt('Tu nombre (opcional - presiona Cancelar para omitir):');
-
-        // Pedir comentario adicional (opcional)
-        let comentario = '';
-        if (nombre !== null) { // Si no presionó Cancelar
-          comentario = prompt('Comentario adicional (opcional - presiona Cancelar para omitir):');
-          if (comentario === null) comentario = '';
-        }
-
-        // Crear mensaje para WhatsApp
-        let mensaje = `*Confirmación de Asistencia - 15 Años de Luciana*\n\n`;
-        mensaje += `*Respuesta:* ${isYes ? '✅ SÍ asistiré' : '❌ NO podré asistir'}\n`;
-
-        if (nombre && nombre.trim() !== '') {
-          mensaje += `*Nombre:* ${nombre.trim()}\n`;
-        }
-
-        mensaje += `\n*Fecha límite de confirmación:* 1° de Noviembre de 2025\n`;
-
-        if (comentario && comentario.trim() !== '') {
-          mensaje += `\n*Comentario:* ${comentario.trim()}\n`;
-        }
-
-        mensaje += `\n---\n*Confirmado desde la invitación digital*`;
-
-        // Codificar el mensaje para URL
-        const mensajeCodificado = encodeURIComponent(mensaje);
-
-        // Número de WhatsApp (¡CAMBIA ESTE NÚMERO!)
-        const numeroWhatsApp = "549XXXXXXXXX"; // Reemplaza XXXXXXXXX con tu número
-
-        // Crear URL de WhatsApp
-        const whatsappURL = `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`;
-
-        // Abrir WhatsApp en nueva pestaña
-        window.open(whatsappURL, '_blank');
-
-        // Cerrar el modal
-        document.getElementById('confirmModal').style.display = 'none';
-      });
-    });
-
-    // Cerrar modales
-    document.querySelectorAll('.close-modal').forEach(button => {
-      button.addEventListener('click', function () {
-        const modal = this.closest('.modal');
-        modal.style.display = 'none';
-      });
-    });
-
-    // Cerrar modal al hacer clic fuera
-    window.addEventListener('click', function (event) {
-      const modals = document.querySelectorAll('.modal');
-      modals.forEach(modal => {
-        if (event.target === modal) {
-          modal.style.display = 'none';
-        }
-      });
-    });
-
-
-  </script>
 
 
   <!-- External Libraries -->
   <script src="./assets/jquery-3.5.1.min.js"></script>
-  <script type="text/javascript" src="https://cdn.addevent.com/libs/atc/1.6.1/atc.min.js" async defer></script>
   <script src="./assets/popper.min.js"></script>
+
+  <script type="text/javascript" src="https://cdn.addevent.com/libs/atc/1.6.1/atc.min.js" async defer></script>
   <script src="./assets/bootstrap.min.js"></script>
   <script src="./assets/slick.min.js"></script>
   <script src="./assets/jquery.fancybox.min.js"></script>
   <script src="./assets/aos.js"></script>
   <script src="./assets/scripts.js"></script>
+
+
+  <script>
+    $(document).ready(function () {
+      // FUNCIÓN PARA EL BOTÓN "ENVIAR" DEL MODAL
+      $('#sendAsistencia').on('click', function (e) {
+        e.preventDefault();
+
+        // 1. Capturar datos del formulario
+        var nombre = $('#nombreAsistente').val();
+        var asiste = $('input[name="asistencia"]:checked').val();
+        var comentarios = $('#comentariosAsistente').val();
+        var numeroWhatsApp = '5491167283379';
+
+        // 2. Validar nombre obligatorio
+        if (nombre.trim() === "") {
+          alert("Por favor, ingresa tu nombre completo.");
+          return;
+        }
+
+        // 3. Armar el mensaje para Sofi
+        var mensaje = "Hola Sofi, ";
+
+        if (asiste === "Si") {
+          mensaje += "¡Confirmo que voy a ir a tu fiesta!";
+        } else {
+          mensaje += "Lamentablemente no voy a poder ir.";
+        }
+
+
+        // 4. Agregar comentarios solo si escribió algo (Opcional)
+        if (comentarios.trim() !== "") {
+          mensaje += "\n*Nota:* " + comentarios;
+        }
+
+        // 5. Crear URL y abrir WhatsApp
+        var whatsappUrl = 'https://wa.me/' + numeroWhatsApp + '?text=' + encodeURIComponent(mensaje);
+        window.open(whatsappUrl, '_blank');
+
+        // 6. Cerrar el modal
+        $('#modalAsistencia').modal('hide');
+      });
+
+      // Lógica para el botón de Sugerir Canción (Opcional)
+      $('#sendSugerenciaCancion').on('click', function () {
+        var nombre = $('#nombreSugerencia').val();
+        var cancion = $('#descripcionSugerencia').val();
+        var num = '5491167283379';
+
+        if (nombre && cancion) {
+          var msj = "Hola Sofi, sugiero esta canción: *" + cancion + "* (De: " + nombre + ")";
+          window.open('https://wa.me/' + num + '?text=' + encodeURIComponent(msj), '_blank');
+        }
+      });
+    });
+  </script>
 
   <!-- Slider Initialization -->
   <script>
