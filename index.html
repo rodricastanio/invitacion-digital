@@ -1471,52 +1471,84 @@
       }
     }
   </script>
-
   <script>
-    $(document).ready(function () {
-      // Inicializar animaciones
-      try { AOS.init(); } catch (e) { }
+    // Modal de confirmación - Funcionalidad corregida
+    document.querySelector('.btn-confirmar').addEventListener('click', function () {
+      const modal = document.getElementById('confirmModal');
+      modal.style.display = 'block';
+    });
 
-      $('#sendAsistencia').on('click', function (e) {
-        e.preventDefault(); // Evita que la página se recargue
+    // Manejo de las opciones de confirmación
+    document.querySelectorAll('.btn-confirm-yes, .btn-confirm-no').forEach(button => {
+      button.addEventListener('click', function (e) {
+        e.stopPropagation(); // Evitar que cierre el modal
 
-        // 1. Capturamos los datos del modal
-        const nombre = $('#nombreAsistente').val();
-        const va = $('input[name="asistencia"]:checked').val();
-        const mensajeExtra = $('#comentariosAsistente').val();
-        const numeroSofi = "5491167283379";
+        const response = this.getAttribute('data-response');
+        const isYes = response === 'si';
 
-        // 2. Validación básica: el nombre es obligatorio
-        if (nombre.trim() === "") {
-          alert("Por favor, ingresa tu nombre completo para confirmar.");
-          $('#nombreAsistente').focus();
-          return;
+        // Pedir nombre (opcional)
+        const nombre = prompt('Tu nombre (opcional - presiona Cancelar para omitir):');
+
+        // Pedir comentario adicional (opcional)
+        let comentario = '';
+        if (nombre !== null) { // Si no presionó Cancelar
+          comentario = prompt('Comentario adicional (opcional - presiona Cancelar para omitir):');
+          if (comentario === null) comentario = '';
         }
 
-        // 3. Armamos el cuerpo del mensaje
-        let texto = `Hola Sofi, soy *${nombre}*.\n`;
+        // Crear mensaje para WhatsApp
+        let mensaje = `*Confirmación de Asistencia - 15 Años de Luciana*\n\n`;
+        mensaje += `*Respuesta:* ${isYes ? '✅ SÍ asistiré' : '❌ NO podré asistir'}\n`;
 
-        if (va === "Si") {
-          texto += "✅ ¡Confirmo que voy a ir a tus 15!";
-        } else {
-          texto += "❌ Lamentablemente no voy a poder ir.";
+        if (nombre && nombre.trim() !== '') {
+          mensaje += `*Nombre:* ${nombre.trim()}\n`;
         }
 
-        // 4. Dato importante: solo se agrega si el usuario escribió algo
-        if (mensajeExtra && mensajeExtra.trim() !== "") {
-          texto += `\n\n*Dato adicional:* ${mensajeExtra.trim()}`;
+        mensaje += `\n*Fecha límite de confirmación:* 1° de Noviembre de 2025\n`;
+
+        if (comentario && comentario.trim() !== '') {
+          mensaje += `\n*Comentario:* ${comentario.trim()}\n`;
         }
 
-        // 5. Construimos la URL de WhatsApp y abrimos
-        const url = `https://wa.me/${numeroSofi}?text=${encodeURIComponent(texto)}`;
-        window.open(url, '_blank');
+        mensaje += `\n---\n*Confirmado desde la invitación digital*`;
 
-        // 6. Cerramos el modal opcionalmente
-        $('#modalAsistencia').modal('hide');
+        // Codificar el mensaje para URL
+        const mensajeCodificado = encodeURIComponent(mensaje);
+
+        // Número de WhatsApp (¡CAMBIA ESTE NÚMERO!)
+        const numeroWhatsApp = "549XXXXXXXXX"; // Reemplaza XXXXXXXXX con tu número
+
+        // Crear URL de WhatsApp
+        const whatsappURL = `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`;
+
+        // Abrir WhatsApp en nueva pestaña
+        window.open(whatsappURL, '_blank');
+
+        // Cerrar el modal
+        document.getElementById('confirmModal').style.display = 'none';
       });
     });
-  </script>
 
+    // Cerrar modales
+    document.querySelectorAll('.close-modal').forEach(button => {
+      button.addEventListener('click', function () {
+        const modal = this.closest('.modal');
+        modal.style.display = 'none';
+      });
+    });
+
+    // Cerrar modal al hacer clic fuera
+    window.addEventListener('click', function (event) {
+      const modals = document.querySelectorAll('.modal');
+      modals.forEach(modal => {
+        if (event.target === modal) {
+          modal.style.display = 'none';
+        }
+      });
+    });
+
+
+  </script>
 
 
   <!-- External Libraries -->
