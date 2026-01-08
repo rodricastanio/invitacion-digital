@@ -429,7 +429,7 @@
         <div class="content-galeria">
 
           <h2 class="title">Un recorrido de estos 15 años</h2>
-          <p class="subtitle">Junto a personas que son muy importantes en mi vida</p>
+          <p class="subtitle">Creciendo paso a paso hacia esta noche mágica.</p>
 
           <div class="anim-galeria"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 111 121" width="111"
               height="121" preserveAspectRatio="xMidYMid meet"
@@ -1447,63 +1447,60 @@
 
   <script>
     $(document).ready(function () {
-      // FUNCIÓN PARA EL BOTÓN "ENVIAR" DEL MODAL
+      const numeroSofi = '5491167283379';
+
+      // 1. MODAL ASISTENCIA
       $('#sendAsistencia').on('click', function (e) {
         e.preventDefault();
-
-        // 1. Capturar datos del formulario
         var nombre = $('#nombreAsistente').val();
         var asiste = $('input[name="asistencia"]:checked').val();
         var comentarios = $('#comentariosAsistente').val();
-        var numeroWhatsApp = '5491167283379';
 
-        // 2. Validar nombre obligatorio
         if (nombre.trim() === "") {
           alert("Por favor, ingresa tu nombre completo.");
           return;
         }
 
-        // 3. Armar el mensaje para Sofi
         var mensaje = "Hola Sofi, ";
+        mensaje += (asiste === "Si") ? "¡Confirmo que voy a ir a tu fiesta!" : "Lamentablemente no voy a poder ir.";
+        mensaje += "\n\n*Invitado:* " + nombre;
 
-        if (asiste === "Si") {
-          mensaje += "¡Confirmo que voy a ir a tu fiesta!";
-        } else {
-          mensaje += "Lamentablemente no voy a poder ir.";
-        }
-
-
-        // 4. Agregar comentarios solo si escribió algo (Opcional)
         if (comentarios.trim() !== "") {
           mensaje += "\n*Nota:* " + comentarios;
         }
 
-        // 5. Crear URL y abrir WhatsApp
-        var whatsappUrl = 'https://wa.me/' + numeroWhatsApp + '?text=' + encodeURIComponent(mensaje);
-        window.open(whatsappUrl, '_blank');
-
-        // 6. Cerrar el modal
+        window.open('https://wa.me/' + numeroSofi + '?text=' + encodeURIComponent(mensaje), '_blank');
         $('#modalAsistencia').modal('hide');
       });
 
-      // Lógica para el botón de Sugerir Canción (Opcional)
-      $('#sendSugerenciaCancion').on('click', function () {
+      // 2. MODAL SUGERIR CANCIÓN (CORREGIDO)
+      $('#sendSugerenciaCancion').on('click', function (e) {
+        e.preventDefault();
         var nombre = $('#nombreSugerencia').val();
         var cancion = $('#descripcionSugerencia').val();
-        var num = '5491167283379';
+        var link = $('#linkSugerencia').val();
 
-        if (nombre && cancion) {
-          var msj = "Hola Sofi, sugiero esta canción: *" + cancion + "* (De: " + nombre + ")";
-          window.open('https://wa.me/' + num + '?text=' + encodeURIComponent(msj), '_blank');
+        if (nombre.trim() === "" || cancion.trim() === "") {
+          alert("Por favor, completa tu nombre y el de la canción.");
+          return;
         }
-      });
-    });
-  </script>
 
-  <!-- Slider Initialization -->
-  <script>
-    $(document).ready(function () {
-      // Initialize Slick Slider
+        var mensaje = "Hola Sofi, quiero sugerir una canción para tu fiesta \n\n";
+        mensaje += "*Canción:* " + cancion + "\n";
+        mensaje += "*De:* " + nombre;
+
+        if (link.trim() !== "") {
+          mensaje += "\n*Link:* " + link;
+        }
+
+        window.open('https://wa.me/' + numeroSofi + '?text=' + encodeURIComponent(mensaje), '_blank');
+        $('#modalSugerirCancion').modal('hide');
+      });
+
+      // Inicializar Animaciones
+      try { AOS.init(); } catch (e) { }
+
+      // Inicializar Carrusel
       $('.carrusel').slick({
         dots: true,
         infinite: true,
@@ -1513,21 +1510,11 @@
         autoplay: true,
         autoplaySpeed: 2000,
         arrows: true,
-        responsive: [
-          {
-            breakpoint: 768,
-            settings: {
-              arrows: false,
-              dots: true
-            }
-          }
-        ]
+        responsive: [{
+          breakpoint: 768,
+          settings: { arrows: false, dots: true }
+        }]
       });
-
-      // Initialize AOS (Animation On Scroll)
-      try {
-        AOS.init();
-      } catch (e) { console.log("AOS init failed", e); }
     });
   </script>
 </body>
