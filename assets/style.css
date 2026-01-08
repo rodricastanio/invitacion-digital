@@ -1440,7 +1440,6 @@ section.galeria p.subtitle {
 /* ---------- */
 
 
-
 /* Fiesta */
 
 section.fiesta {
@@ -1449,6 +1448,18 @@ section.fiesta {
   padding-top: 14%;
   position: relative;
   padding-bottom: 17%;
+  margin-top: 150px;
+}
+
+section.fiesta h2.title {
+  font-size: 60px !important;
+  /* Doble !important para forzar */
+  line-height: 50px !important;
+}
+
+section.fiesta p.subtitle {
+  font-size: 20px !important;
+  line-height: 1.5 !important;
 }
 
 
@@ -1504,33 +1515,58 @@ section.fiesta .item-fiesta h3 {
   font-family: var(--fuente-2);
   font-weight: var(--grosor-fuente-bold);
   text-transform: uppercase;
-  font-size: 22px
+  font-size: 26px;
+  /* Aumentado de 22px */
+  margin-bottom: 20px;
+  /* Agregado espacio abajo */
 }
 
 section.fiesta .item-fiesta p {
   color: var(--color-1);
-  margin-bottom: 0;
+  margin-bottom: 25px;
+  /* Aumentado espacio abajo */
   font-family: var(--fuente-2);
   font-weight: var(--grosor-fuente-light);
+  font-size: 18px;
+  /* Texto más grande */
+  line-height: 1.6;
+  /* Mejor interlineado */
+  min-height: 80px;
+  /* Altura mínima para el texto */
 }
 
 section.fiesta .item-fiesta a.boton {
   width: 85%;
+  padding: 20px 30px;
+  /* Botón más grande */
+  font-size: 18px;
+  /* Texto del botón más grande */
+  margin-top: 15px;
+  /* Espacio arriba del botón */
 }
 
 section.fiesta .item-fiesta .content-item-fiesta {
   background-color: #fff;
-  padding: 40px 25px;
+  padding: 50px 30px;
+  /* Más padding (era 40px 25px) */
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   border-radius: 20px;
-  min-height: 400px;
+  min-height: 520px;
+  /* Aumentado de 480px a 520px (más largo) */
   -webkit-box-shadow: 0px 0px 15px 0px #ececec;
   box-shadow: 0px 0px 15px 0px #ececec;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* Distribuye el espacio mejor */
 }
 
 section.fiesta .content-anim-fiesta {
-  height: 80px;
+  height: 100px;
+  /* Aumentado de 80px */
+  margin: 20px auto 30px auto;
+  /* Más margen vertical */
 }
 
 section.fiesta .item-fiesta .adorno {
@@ -1554,7 +1590,27 @@ section.fiesta .item-fiesta .adorno.adorno-2 {
   width: 160px;
 }
 
-/* ---------- */
+/* Media query para móviles - mantener proporciones */
+@media (max-width: 768px) {
+  section.fiesta .item-fiesta .content-item-fiesta {
+    min-height: 490px;
+    /* Un poco menos alto en móviles */
+    padding: 40px 25px;
+  }
+
+  section.fiesta .item-fiesta h3 {
+    font-size: 22px;
+  }
+
+  section.fiesta .item-fiesta p {
+    font-size: 18px;
+    min-height: 70px;
+  }
+
+  section.fiesta .content-anim-fiesta {
+    height: 80px;
+  }
+}
 
 
 
@@ -1597,7 +1653,8 @@ section.regalos .adorno-3 {
 }
 
 section.regalos .title {
-  margin-bottom: 10px
+  margin-bottom: 10px;
+
 }
 
 section.regalos .anim-regalos {
@@ -2479,40 +2536,60 @@ footer img.firma-footer {
     z-index: 110 !important;
   }
 
-
-  /* Flores contador: asegurar visibilidad y adaptar contenido dentro del círculo */
-  section.cuenta-regresiva .box-aros {
-    width: 100% !important;
-    top: -120px !important;
-    margin: 0 auto;
-    left: 0;
-    right: 0;
+  section.fiesta h2.title {
+    font-size: 45px !important;
+    /* Doble !important para forzar */
+    line-height: 50px !important;
   }
 
-  section.ceremonia-fiesta .titulo-fiesta {
-    font-size: 100px;
+  section.regalos h2.title {
+    font-size: 45px !important;
+    /* Doble !important para forzar */
+    line-height: 50px !important;
   }
 
-  section.cuenta-regresiva .box-aros .box-circulo {
-    width: 320px !important;
-    height: 320px !important;
-    max-width: 90%;
-    padding: 12px !important;
-    margin: 0 auto;
+  section.regalos p.subtitle {
+    font-size: 20px !important;
+    /* Doble !important para forzar */
+    line-height: 1.5 !important;
   }
 
-  section.cuenta-regresiva .adorno-1 {
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    top: -10px !important;
-    width: 55% !important;
-    max-width: 260px !important;
-    z-index: 120 !important;
-  }
 
-  section.cuenta-regresiva .box-aros {
-    z-index: 200 !important;
-  }
+
+}
+
+/* Flores contador: asegurar visibilidad y adaptar contenido dentro del círculo */
+section.cuenta-regresiva .box-aros {
+  width: 100% !important;
+  top: -120px !important;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+}
+
+section.ceremonia-fiesta .titulo-fiesta {
+  font-size: 100px;
+}
+
+section.cuenta-regresiva .box-aros .box-circulo {
+  width: 320px !important;
+  height: 320px !important;
+  max-width: 90%;
+  padding: 12px !important;
+  margin: 0 auto;
+}
+
+section.cuenta-regresiva .adorno-1 {
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  top: -10px !important;
+  width: 55% !important;
+  max-width: 260px !important;
+  z-index: 120 !important;
+}
+
+section.cuenta-regresiva .box-aros {
+  z-index: 200 !important;
 }
 
 /* Ocultar pseudo-onda globalmente para evitar duplicados */
@@ -2523,5 +2600,4 @@ section.portada::after {
 /* Forzar que el contenedor de la imagen permita que la wave la tape visualmente */
 section.portada .portada-picture {
   overflow: visible;
-}
 }
