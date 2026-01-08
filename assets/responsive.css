@@ -531,3 +531,24 @@
   }
 
 }
+
+/* Gallery fixes for mobile */
+@media only screen and (max-width: 767px) {
+  .carrusel {
+    padding: 0 10px;
+  }
+
+  .carrusel .polaroid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .carrusel .polaroid img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain;
+    max-height: 300px;
+    margin: 0 auto;
+  }
+}
