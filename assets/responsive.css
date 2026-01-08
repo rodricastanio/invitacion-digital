@@ -162,26 +162,65 @@
     font-size: 35px;
   }
 
-  section.footer h4 {
-    font-size: 50px;
-    line-height: 45px;
+  /* Footer Replicating Portada Styles for Mobile */
+  section.footer .box-nombres-fecha-portada {
+    background-size: 170px;
+    background-position-y: 65px;
+    padding-bottom: 20px;
   }
 
-  section.footer h5 {
+  section.footer .box-nombres-fecha-portada h1 {
+    font-size: 55px;
+    line-height: 65px;
+    margin-top: 15px;
+  }
+
+  section.footer .box-nombres-fecha-portada h1 span {
+    font-size: 70px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 15px;
+  }
+
+  section.footer .box-nombres-fecha-portada h2 {
+    font-size: 50px !important;
+    line-height: 28px !important;
+    margin-top: 30px;
+  }
+
+  section.footer .box-nombres-fecha-portada #fecha {
     font-size: 35px;
+    margin-bottom: 35px;
+    margin-top: 0;
+  }
+
+  section.footer .box-nombres-fecha-portada #fecha:before {
+    right: -40px;
+  }
+
+  section.footer .box-nombres-fecha-portada #fecha:after {
+    left: -40px;
+  }
+
+  section.footer .box-nombres-fecha-portada .wrapper-nombre img {
+    width: 140%;
+    /* O 130%, 140%, etc. */
+    max-width: none;
+    /* Elimina cualquier limitación */
   }
 
   section.footer .col-nombres-footer {
-    background-size: 130px;
-    background-position-y: 18px;
+    width: 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
     padding: 30px 0;
   }
 
-  section.footer h4 span {
-    font-size: 30px;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
+  section.footer .col-acciones-footer {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
   }
 
   section.footer .col-acciones-footer ul {
@@ -250,10 +289,7 @@
     font-size: 40px;
   }
 
-  section.footer {
-    padding-bottom: 20%;
-    padding-top: 30%;
-  }
+
 
   section.regalos {
     padding: 120px 0;
@@ -289,6 +325,7 @@
   section.ceremonia-fiesta {
     padding-bottom: 35%;
     background-position: center 70px;
+    margin-top: 80px
   }
 
   section.galeria {
@@ -352,6 +389,18 @@
     top: initial;
     bottom: 0;
     right: 0;
+  }
+
+
+  section.fiesta .item-fiesta .flores3 {
+    position: absolute;
+    /* ¡ESTO ES ESENCIAL! */
+    width: 200px;
+    top: -80px;
+    left: 0px;
+    /* Corregí -0px a 0px */
+    z-index: 10;
+    /* Para que esté sobre otros elementos */
   }
 
   .music-anim-icon {

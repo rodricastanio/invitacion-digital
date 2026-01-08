@@ -122,6 +122,8 @@
       height: auto;
     }
 
+
+
     section.portada .portada-picture,
     section.portada .portada-container {
       width: 100% !important;
@@ -803,7 +805,7 @@ section.portada .portada-picture {
   }
 
   section.portada .box-frase-portada {
-    margin-top: 25px;
+    margin-top: 30px;
   }
 
   section.portada .box-frase-portada p {
@@ -1062,7 +1064,7 @@ section.ceremonia-fiesta .col-ceremonia .anim-anillos,
 section.ceremonia-fiesta .anim-fiesta {
   width: 175px;
   height: 175px;
-  margin: 0 auto 20px;
+  margin: 0 auto 0px;
   background-color: white;
   border-radius: 50%;
   box-shadow: 0px 0px 15px -1px rgba(0, 0, 0, 0.40);
@@ -1080,7 +1082,7 @@ section.ceremonia-fiesta .anim-fiesta .logo-fiesta {
 }
 
 section.ceremonia-fiesta .col-fiesta .anim-fiesta {
-  padding: 10px;
+  padding: 0px;
 }
 
 section.ceremonia-fiesta .col-ceremonia .anim-anillos {
@@ -1183,10 +1185,10 @@ section.ceremonia-fiesta .info-col .info-box h6 {
 section.ceremonia-fiesta .titulo-contenedor {
   position: relative;
   display: inline-block;
-  margin: 20px 0 30px;
   min-height: 120px;
   /* Aumentado para banderilla más grande */
   width: 100%;
+  max-width: none;
   /* Para que ocupe todo el ancho */
   text-align: center;
   /* Centrar contenido */
@@ -1565,7 +1567,7 @@ section.fiesta .item-fiesta .content-item-fiesta {
 section.fiesta .content-anim-fiesta {
   height: 100px;
   /* Aumentado de 80px */
-  margin: 20px auto 30px auto;
+  margin: 20px auto 10px auto;
   /* Más margen vertical */
 }
 
@@ -1744,76 +1746,299 @@ section.instagram:after {
 
 
 
-/* Footer */
+/* ======================= */
+/* ESTILOS FOOTER GENERAL */
+/* ======================= */
 
 section.footer {
   position: relative;
-  padding-bottom: 10%;
-  padding-top: 10%;
-  margin-top: -2px;
+  padding: 60px 0;
   background-color: var(--color-4);
 }
 
-section.footer .col-nombres-footer {
-  background: var(--pathSVG) center center no-repeat;
-  background-size: 180px;
-  background-position-y: 0;
+/* Asegurar que la fila esté centrada verticalmente */
+section.footer .row {
+  min-height: 400px;
+  /* Altura mínima para que se vea bien centrado */
 }
 
-section.footer h4 {
-  width: 100%;
+/* Estilos para el box-nombres-fecha-portada en el footer */
+section.footer .box-nombres-fecha-portada {
   text-align: center;
-  font-family: var(--fuente-1);
-  font-weight: var(--grosor-fuente-regular);
-  color: var(--color-1);
-  font-size: 70px;
-  text-transform: uppercase;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-section.footer h5 {
-  width: 100%;
-  text-align: center;
+/* Para escritorio: alinear a la izquierda */
+@media (min-width: 992px) {
+  section.footer .col-nombres-footer .box-nombres-fecha-portada {
+    text-align: left;
+    margin: 0;
+  }
+
+  section.footer .col-nombres-footer .box-nombres-fecha-portada h1,
+  section.footer .col-nombres-footer .box-nombres-fecha-portada h2 {
+    text-align: left;
+  }
+
+  section.footer .col-nombres-footer .wrapper-nombre {
+    justify-content: flex-start;
+  }
+}
+
+section.footer .box-nombres-fecha-portada #fecha {
+  display: inline-block;
+  white-space: nowrap;
+  width: auto;
   font-family: var(--fuente-1);
-  font-weight: var(--grosor-fuente-regular);
+  font-size: 24px;
+  line-height: 20px;
   color: var(--color-3);
-  font-size: 45px;
+  padding: 8px 25px 10px;
+  margin-bottom: 30px;
+  border: 2px solid;
+  border-image-slice: 1;
+  border-width: 1px;
+  border-image-source: linear-gradient(to right, var(--color-4), var(--color-3), var(--color-4));
+}
+
+section.footer .box-nombres-fecha-portada h1 {
+  width: 100%;
+  font-family: var(--fuente-1);
+  text-transform: uppercase;
+  font-weight: var(--grosor-fuente-regular);
+  font-size: 60px;
+  line-height: 65px;
+  margin-bottom: 0;
+  color: var(--color-1);
+  position: relative;
+  z-index: 2;
+}
+
+section.footer .box-nombres-fecha-portada h2 {
+  width: 100%;
+  font-family: var(--fuente-1);
   text-transform: inherit;
+  font-weight: var(--grosor-fuente-regular);
+  font-size: 36px;
+  line-height: 65px;
+  margin-bottom: 0;
+  color: var(--color-3);
+}
+
+section.footer .wrapper-nombre {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 0 10px 0;
+}
+
+section.footer .fondo-apertura {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 350px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Estilos para la columna de acciones */
+section.footer .col-acciones-footer {
+  padding: 20px 0;
 }
 
 section.footer .col-acciones-footer ul {
-  font-family: var(--fuente-2);
-  font-weight: 400;
-  text-align: left;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
 }
 
+/* Para escritorio: alinear a la derecha */
+@media (min-width: 992px) {
+  section.footer .col-acciones-footer ul {
+    text-align: right;
+  }
+}
 
 section.footer .col-acciones-footer ul li {
   margin-bottom: 20px;
-  text-align: right;
 }
 
+section.footer .col-acciones-footer ul li:last-child {
+  margin-bottom: 0;
+}
 
 section.footer .col-acciones-footer ul a,
-section.footer .addeventatc span.nameBtn {
+section.footer .col-acciones-footer .addeventatc span.nameBtn {
   color: var(--color-3);
   font-family: var(--fuente-2);
   font-weight: var(--grosor-fuente-regular);
   font-size: 20px;
-
-  -webkit-transition: all 0.5s 0s ease;
-  -moz-transition: all 0.5s 0s ease;
-  -o-transition: all 0.5s 0s ease;
-  transition: all 0.5s 0s ease;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
 }
-
 
 section.footer .col-acciones-footer ul a:hover,
-section.footer .addeventatc span.nameBtn:hover {
+section.footer .col-acciones-footer .addeventatc span.nameBtn:hover {
   color: var(--color-2) !important;
-  background: none;
   text-decoration: none;
+  transform: translateX(5px);
 }
 
+/* Estilo para el botón de AddEvent */
+section.footer .col-acciones-footer .addeventatc {
+  cursor: pointer;
+}
+
+section.footer .col-acciones-footer .addeventatc .start,
+section.footer .col-acciones-footer .addeventatc .end,
+section.footer .col-acciones-footer .addeventatc .timezone,
+section.footer .col-acciones-footer .addeventatc .title {
+  display: none !important;
+}
+
+/* ======================= */
+/* MEDIA QUERIES RESPONSIVE */
+/* ======================= */
+
+/* Para móviles y tablets */
+@media (max-width: 991px) {
+  section.footer {
+    padding: 40px 0;
+  }
+
+  section.footer .row {
+    min-height: auto;
+  }
+
+  section.footer .box-nombres-fecha-portada {
+    max-width: 400px;
+  }
+
+  section.footer .box-nombres-fecha-portada #fecha {
+    font-size: 20px;
+    padding: 6px 20px 8px;
+    margin-bottom: 25px;
+  }
+
+  section.footer .box-nombres-fecha-portada h1 {
+    font-size: 48px;
+    line-height: 52px;
+  }
+
+  section.footer .box-nombres-fecha-portada h2 {
+    font-size: 30px;
+    line-height: 52px;
+  }
+
+  section.footer .fondo-apertura {
+    max-width: 280px;
+  }
+
+  section.footer .col-acciones-footer {
+    margin-top: 30px;
+  }
+}
+
+/* Para tablets pequeñas */
+@media (max-width: 768px) {
+  section.footer .box-nombres-fecha-portada h1 {
+    font-size: 40px;
+    line-height: 44px;
+  }
+
+  section.footer .box-nombres-fecha-portada h2 {
+    font-size: 26px;
+    line-height: 44px;
+  }
+
+  section.footer .col-acciones-footer ul a,
+  section.footer .col-acciones-footer .addeventatc span.nameBtn {
+    font-size: 18px;
+  }
+}
+
+/* Para móviles muy pequeños */
+@media (max-width: 576px) {
+  section.footer {
+    padding: 30px 0;
+  }
+
+  section.footer .box-nombres-fecha-portada {
+    padding: 15px;
+  }
+
+  section.footer .box-nombres-fecha-portada #fecha {
+    font-size: 18px;
+    padding: 5px 15px 7px;
+    margin-bottom: 20px;
+  }
+
+  section.footer .box-nombres-fecha-portada h1 {
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  section.footer .box-nombres-fecha-portada h2 {
+    font-size: 24px;
+    line-height: 40px;
+  }
+
+  section.footer .fondo-apertura {
+    max-width: 240px;
+  }
+
+  section.footer .col-acciones-footer ul li {
+    margin-bottom: 15px;
+  }
+
+  section.footer .col-acciones-footer ul a,
+  section.footer .col-acciones-footer .addeventatc span.nameBtn {
+    font-size: 16px;
+  }
+}
+
+/* Para pantallas grandes (escritorio) */
+@media (min-width: 992px) {
+  section.footer .box-nombres-fecha-portada {
+    padding-right: 40px;
+  }
+
+  section.footer .col-acciones-footer {
+    padding-left: 40px;
+  }
+
+  /* Ajustar el tamaño de fuente en escritorio */
+  section.footer .box-nombres-fecha-portada h1 {
+    font-size: 70px;
+    line-height: 75px;
+  }
+
+  section.footer .box-nombres-fecha-portada h2 {
+    font-size: 40px;
+    line-height: 75px;
+  }
+}
+
+/* Para pantallas extra grandes */
+@media (min-width: 1200px) {
+  section.footer .box-nombres-fecha-portada h1 {
+    font-size: 80px;
+    line-height: 85px;
+  }
+
+  section.footer .box-nombres-fecha-portada h2 {
+    font-size: 45px;
+    line-height: 85px;
+  }
+}
 
 /* ---------- */
 

@@ -196,6 +196,10 @@
           <img src="./assets/flores_Grupo02_C.png" />
         </div>
 
+        <div class="flores-grupo01-wrapper">
+          <img src="./assets/flores_Grupo01_C.png" class="flor-derecha-girada" alt="" />
+        </div>
+
       </div>
       <!-- Contenido portada -->
       <div class="portada-container d-flex justify-content-center align-items-center">
@@ -569,9 +573,7 @@
 
 
           <picture>
-            <source type="image/png" srcset="./assets/flores_Grupo03.png">
-            <source type="image/png" srcset="./assets/flores_Grupo03.png">
-            <img class="adorno adorno-1" src="./assets/flores_Grupo03.png" alt="">
+            <img src="./assets/flores_Grupo03.png" alt="" class="flores3">
           </picture>
 
 
@@ -860,6 +862,10 @@
     </div>
 
 
+    <div class="ola-superior">
+      <img src="./assets/onda2.png" alt="Ola decorativa" class="ola-decorativa">
+    </div>
+
 
   </section>
 
@@ -867,52 +873,47 @@
   <!-- Footer-->
   <section class="footer">
     <div class="container">
-
-      <div class="row">
-        <div class="col-md-6 col-nombres-footer d-flex justify-content-center align-items-center">
-          <div>
-            <h4>
-              <span id="nombre">Sofi</span>
-            </h4>
-            <h5>Mis 15 años</h5>
+      <div class="row align-items-center">
+        <!-- Primera columna: Nombre y fecha (izquierda en escritorio) -->
+        <div
+          class="col-12 col-lg-6 col-nombres-footer d-flex justify-content-center justify-content-lg-start align-items-center">
+          <div class="box-nombres-fecha-portada">
+            <span id="fecha">14.02.2026</span>
+            <div class="wrapper-nombre">
+              <img src="./assets/apertura.png" class="fondo-apertura" alt="" aria-hidden="true">
+              <h1>
+                <span id="nombre">Sofi</span>
+              </h1>
+            </div>
+            <h2>Mis 15 años</h2>
           </div>
         </div>
+
+        <!-- Segunda columna: Acciones (derecha en escritorio) -->
         <div
-          class="col-md-6 col-acciones-footer d-flex justify-content-center justify-content-md-center align-items-center">
-
+          class="col-12 col-lg-6 col-acciones-footer d-flex justify-content-center justify-content-lg-end align-items-center mt-4 mt-lg-0">
           <ul>
-
             <li>
-              <a href="https://wa.me/#" data-evento="Fiesta" class="confirmar-asistencia">Confirmar asistencia a
-                fiesta</a>
+              <a href="https://wa.me/#" data-evento="Fiesta" class="confirmar-asistencia">
+                Confirmar asistencia a fiesta
+              </a>
             </li>
-
             <li>
               <a href="https://wa.me/#" class="sugerir-cancion">Sugerir canción</a>
             </li>
-
             <li>
               <div title="" class="addeventatc" id="addeventatc2" aria-haspopup="true" aria-expanded="false"
                 tabindex="0" translate="no" data-loaded="true" style="visibility: visible;">
-
                 <span class="nameBtn atc_node notranslate">Agendar Fiesta</span>
-
                 <span class="start atc_node notranslate">2026-02-14 16:19:49</span>
                 <span class="end atc_node notranslate">2026-02-14 16:19:49</span>
                 <span class="timezone atc_node notranslate">America/Argentina/Buenos_Aires</span>
                 <span class="title atc_node notranslate">[NOMBRE] ::: [EVENTO]</span>
-
               </div>
             </li>
-
           </ul>
-
         </div>
-
-
-
       </div>
-
     </div>
   </section>
 
