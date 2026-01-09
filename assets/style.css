@@ -584,6 +584,166 @@ section.portada .portada-picture {
   color: white;
 }
 
+/* Estilos específicos para el modal de regalos */
+#modalRegalos .modal-body {
+  padding: 25px 30px;
+  text-align: center;
+}
+
+#modalRegalos .gracias-regalo {
+  color: var(--color-1);
+  font-family: var(--fuente-2);
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+#modalRegalos .datos-transferencia {
+  margin: 0 auto;
+  max-width: 400px;
+  text-align: left;
+}
+
+#modalRegalos .dato-item {
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px dashed rgba(140, 94, 68, 0.2);
+}
+
+#modalRegalos .dato-item:last-child {
+  border-bottom: none;
+  margin-bottom: 20px;
+}
+
+#modalRegalos .dato-item h6 {
+  color: var(--color-3);
+  font-family: var(--fuente-1);
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#modalRegalos .dato-contenido {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid rgba(140, 94, 68, 0.1);
+}
+
+#modalRegalos .dato-texto {
+  color: var(--color-1);
+  font-family: var(--fuente-2);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  word-break: break-all;
+  flex: 1;
+  text-align: left;
+}
+
+#modalRegalos .btn-copiar {
+  background-color: var(--color-3);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-family: var(--fuente-2);
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+#modalRegalos .btn-copiar:hover {
+  background-color: var(--color-5);
+  transform: translateY(-1px);
+}
+
+#modalRegalos .btn-copiar:active {
+  transform: translateY(0);
+}
+
+#modalRegalos .btn-copiar svg {
+  fill: white;
+}
+
+#modalRegalos .mensaje-copiado {
+  background-color: rgba(147, 168, 172, 0.9);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-family: var(--fuente-2);
+  font-size: 14px;
+  margin-top: 20px;
+  display: none;
+  animation: fadeInOut 2s ease;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  #modalRegalos .modal-body {
+    padding: 20px 15px;
+  }
+
+  #modalRegalos .gracias-regalo {
+    font-size: 16px;
+    padding: 0 5px;
+  }
+
+  #modalRegalos .dato-item h6 {
+    font-size: 19px;
+  }
+
+  #modalRegalos .dato-contenido {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  #modalRegalos .btn-copiar {
+    align-self: flex-end;
+  }
+
+  #modalRegalos .dato-texto {
+    font-size: 15px;
+    width: 100%;
+  }
+}
+
 /* Asegurar que el contenido esté centrado */
 #modalVestuario .modal-body {
   display: flex;

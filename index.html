@@ -1241,6 +1241,7 @@
     </div>
   </div>
   <!-- Modal regalos-->
+  <!-- Modal regalos-->
   <div id="modalRegalos" class="modal fade" tabindex="-1">
     <div class="modal-dialog modal-md modal-dialog-centered">
       <div class="modal-content">
@@ -1251,8 +1252,6 @@
             <img class="adorno adorno-1 aos-init aos-animate" data-aos="fade-right" data-aos-delay="300"
               data-aos-duration="1000" data-aos-once="false" src="./assets/flores_Grupo04.png" alt="" loading="lazy">
           </picture>
-
-
 
           <div class="img-top-modal d-flex justify-content-center align-items-start">
 
@@ -1266,21 +1265,61 @@
 
           </div>
 
-
-
           <div class="modal-header">
-
             <h5 class="modal-title">Regalos</h5>
-
           </div>
 
           <div class="modal-body">
-            <p>Contenido modal regalos</p>
+            <!-- CONTENIDO AGREGADO -->
+            <p class="gracias-regalo">
+              ¡Gracias por el regalo!.
+            </p>
+
+            <div class="datos-transferencia">
+              <!-- Alias -->
+              <div class="dato-item">
+                <h6>Alias</h6>
+                <div class="dato-contenido">
+                  <span class="dato-texto" id="alias-text">SOFI.OVIEDO.2011</span>
+                  <button class="btn-copiar" data-text="SOFI.OVIEDO.2011" data-tipo="alias">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      viewBox="0 0 16 16">
+                      <path
+                        d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+                      <path
+                        d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+                    </svg>
+                    Copiar
+                  </button>
+                </div>
+              </div>
+
+              <!-- CBU -->
+              <div class="dato-item">
+                <h6>CBU</h6>
+                <div class="dato-contenido">
+                  <span class="dato-texto" id="cbu-text">0140081603503269531742</span>
+                  <button class="btn-copiar" data-text="0140081603503269531742" data-tipo="cbu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      viewBox="0 0 16 16">
+                      <path
+                        d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+                      <path
+                        d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+                    </svg>
+                    Copiar
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="mensaje-copiado" id="mensaje-copiado">
+              ¡Copiado al portapapeles!
+            </div>
           </div>
 
           <div class="modal-footer">
           </div>
-
 
         </div>
       </div>
@@ -1495,6 +1534,72 @@
 
         window.open('https://wa.me/' + numeroSofi + '?text=' + encodeURIComponent(mensaje), '_blank');
         $('#modalSugerirCancion').modal('hide');
+      });
+
+      // Funcionalidad para copiar al portapapeles
+      $(document).ready(function () {
+        // Función para copiar texto al portapapeles
+        function copiarAlPortapapeles(texto) {
+          navigator.clipboard.writeText(texto).then(function () {
+            console.log('Texto copiado: ' + texto);
+            return true;
+          }).catch(function (err) {
+            console.error('Error al copiar: ', err);
+            // Fallback para navegadores más antiguos
+            var textArea = document.createElement("textarea");
+            textArea.value = texto;
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            try {
+              document.execCommand('copy');
+              console.log('Texto copiado con fallback');
+              return true;
+            } catch (err) {
+              console.error('Fallback también falló: ', err);
+              return false;
+            } finally {
+              document.body.removeChild(textArea);
+            }
+          });
+        }
+
+        // Evento para botones de copiar en el modal de regalos
+        $(document).on('click', '#modalRegalos .btn-copiar', function (e) {
+          e.preventDefault();
+          var texto = $(this).data('text');
+          var tipo = $(this).data('tipo');
+
+          if (copiarAlPortapapeles(texto)) {
+            // Mostrar mensaje de confirmación
+            var mensaje = $('#modalRegalos #mensaje-copiado');
+            mensaje.text(tipo === 'alias' ? '¡Alias copiado!' : '¡CBU copiado!');
+            mensaje.fadeIn(300);
+
+            // Ocultar mensaje después de 2 segundos
+            setTimeout(function () {
+              mensaje.fadeOut(300);
+            }, 2000);
+
+            // Cambiar temporalmente el texto del botón
+            var boton = $(this);
+            var textoOriginal = boton.html();
+            boton.html('<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg>Copiado');
+            boton.css('background-color', 'var(--color-5)');
+
+            // Restaurar después de 1.5 segundos
+            setTimeout(function () {
+              boton.html(textoOriginal);
+              boton.css('background-color', '');
+            }, 1500);
+          }
+        });
+
+        // Asegurar que el modal esté listo
+        $('#modalRegalos').on('shown.bs.modal', function () {
+          // Resetear mensaje cuando se abre el modal
+          $('#modalRegalos #mensaje-copiado').hide();
+        });
       });
 
       // Inicializar Animaciones
